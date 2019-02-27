@@ -5,9 +5,9 @@ ObjectiveFunction = @q1;
 nvars = 4;    % Number of variables 
 LB = [14 14 14 14];   % Lower bound 
 UB = [60 60 60 60];  % Upper bound 
-ConstraintFunction = @q1_constraint; 
+%ConstraintFunction = @q1_constraint; 
 %options = gaoptimset('PopulationSize',10000000);
-[x,fval, output, outputpopulation] = ga(ObjectiveFunction,nvars,[],[],[],[],LB,UB,ConstraintFunction)
+[x,fval, output, outputpopulation] = ga(ObjectiveFunction,nvars,[],[],[],[],LB,UB)
 
 %% Q2
 clear all;
@@ -16,9 +16,9 @@ ObjectiveFunction = @q2;
 nvars = 16;    % Number of variables
 LB = -1*ones(1,16);   % Lower bound 
 UB = 1*ones(1,16);  % Upper bound  
-% options = gaoptimset('PopulationSize',100);
-% options = gaoptimset('MutationFration',{@mutationuniform,0.01});
-% options = gaoptimset('CrossoverFraction',0.8);
+% options = gaoptimset('PopulationSize',200);
+% options = gaoptimset('CrossoverFcn',{@mutationuniform,0.1});
+ options = gaoptimset('CrossoverFraction',0.8);
 [x,fval, output, outputpopulation] = ga(ObjectiveFunction,nvars,[],[],[],[],LB,UB)
 
 %% Q3
